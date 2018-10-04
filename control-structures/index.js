@@ -49,8 +49,8 @@ try {
     throw price;
   }
   console.log('Цена товара введена корректно');
-}catch (err) {
-    console.log(`Вы допустили ошибку: ${price} не является числом`);
+} catch (err) {
+  console.log(`Вы допустили ошибку: ${price} не является числом`);
 }
 
 // task_4
@@ -60,12 +60,12 @@ var age;
 
 if (planet_of_residence === 'Земля' && age < 18) {
   console.log('Вы не достигли совершеннолетия.')
-}else if (planet_of_residence === 'Земля' && age >= 18) {
+} else if (planet_of_residence === 'Земля' && age >= 18) {
   console.log('Приятных покупок.')
-}else if (planet_of_residence === 'Юпитер' && age < 120) {
+} else if (planet_of_residence === 'Юпитер' && age < 120) {
   console.log('Сожалеем. Вернитесь на 120-й день рождения!')
-}else if (planet_of_residence === 'Юпитер' && age >= 120) {
+} else if (planet_of_residence === 'Юпитер' && age >= 120) {
   console.log('Чистого неба и удачных покупок!')
-}else {
+} else {
   console.log('Спасибо, что пользуетесь услугами нашего магазина!')
 }
