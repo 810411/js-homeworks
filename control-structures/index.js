@@ -2,10 +2,10 @@
 
 // task_1
 
-function order(count_in_stock, units_for_order) {
-  if (units_for_order > count_in_stock) {
+function order(countInStock, unitsForOrder) {
+  if (unitsForOrder > countInStock) {
     console.log('На складе нет такого количества товаров.');
-  } else if (units_for_order === count_in_stock) {
+  } else if (unitsForOrder === countInStock) {
     console.log('Вы забираете весь товар c нашего склада!');
   } else {
     console.log('Заказ оформлен.');
@@ -46,26 +46,42 @@ var price = 'Полтинник';
 
 try {
   if (typeof(price) !== 'number') {
-    throw price;
+    throw `Вы допустили ошибку: ${price} не является числом`;
   }
   console.log('Цена товара введена корректно');
 } catch (err) {
-  console.log(`Вы допустили ошибку: ${price} не является числом`);
+  console.log(err);
 }
 
 // task_4
 
-var planet_of_residence;
+var planetOfResidence;
 var age;
 
-if (planet_of_residence === 'Земля' && age < 18) {
-  console.log('Вы не достигли совершеннолетия.')
-} else if (planet_of_residence === 'Земля' && age >= 18) {
-  console.log('Приятных покупок.')
-} else if (planet_of_residence === 'Юпитер' && age < 120) {
-  console.log('Сожалеем. Вернитесь на 120-й день рождения!')
-} else if (planet_of_residence === 'Юпитер' && age >= 120) {
-  console.log('Чистого неба и удачных покупок!')
-} else {
+if (planetOfResidence === 'Земля') {
+  if (age < 18) {
+    console.log('Вы не достигли совершеннолетия.')
+  }else {
+    console.log('Приятных покупок.')
+  }
+}else if (planetOfResidence === 'Юпитер') {
+  if (age < 120) {
+    console.log('Сожалеем. Вернитесь на 120-й день рождения!')
+  }else {
+    console.log('Чистого неба и удачных покупок!')
+  }
+}else {
   console.log('Спасибо, что пользуетесь услугами нашего магазина!')
 }
+
+// if (planetOfResidence === 'Земля' && age < 18) {
+//   console.log('Вы не достигли совершеннолетия.')
+// } else if (planetOfResidence === 'Земля' && age >= 18) {
+//   console.log('Приятных покупок.')
+// } else if (planetOfResidence === 'Юпитер' && age < 120) {
+//   console.log('Сожалеем. Вернитесь на 120-й день рождения!')
+// } else if (planetOfResidence === 'Юпитер' && age >= 120) {
+//   console.log('Чистого неба и удачных покупок!')
+// } else {
+//   console.log('Спасибо, что пользуетесь услугами нашего магазина!')
+// }
