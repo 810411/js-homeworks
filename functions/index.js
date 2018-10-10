@@ -2,7 +2,7 @@
 
 // task 1
 
-function calcGuarantee(yearsQty = 0) {
+function calcGuarantee(yearsQty) {
   if (yearsQty === 0) {
     return 0;
   } else if (yearsQty % 2 === 0) {
@@ -29,7 +29,7 @@ console.log(`Подарочная упаковка и гравировка: ${ca
 
 // task 3
 
-function calcDelivery(destination = '') {
+function calcDelivery(destination=0) {
   switch (destination) {
     case 'Луна':
       return 150;
@@ -39,7 +39,7 @@ function calcDelivery(destination = '') {
       return 550;
     case 'Туманность Ориона':
       return 600;
-    case '':
+    case 0:
       return 0;
     default:
       return NaN;
@@ -68,8 +68,12 @@ function calcOrderPrice(productCost, guaranteeTime, engravingText, destination) 
   let result = `Общая стоимость заказа: ${productCost + guarantee + engraving + delivery} Q.\n`;
   result += `Из них ${guarantee} Q за гарантийное обслуживание на ${guaranteeTime} год/года.\n`;
   result += `Гравировка на сумму ${engraving} Q.\n`;
-  result += `Доставка в область ${destination}: ${delivery} Q.`;
-  return result
+  if (destination) {
+    result += `Доставка в область ${destination}: ${delivery} Q.`;
+  } else result += 'Доставка не требуется';
+  return result;
 }
 
 console.log(calcOrderPrice(4000, 1, 'A B C D E', 'Галактика Туманность Андромеды'));
+
+console.log(calcOrderPrice(1000, 0, 'Hello World'));
