@@ -17,15 +17,24 @@ console.log(`Дополнительное гарантийное обслужи�
 
 // task 2
 
+const WORD_PRICE = 11;
+
 function calcEngraving(text) {
-  if (typeof text === 'string' && text.length > 0) {
-    let wordsQty = text.split(' ').length;
-    return wordsQty * 11;
+  if (typeof text === 'string') {
+    text = text.split(' ');
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] === '') {
+        text.splice(i, 1);
+        i--;
+      }
+    }
+    return text.length * WORD_PRICE;
   }
   return 0;
 }
 
-console.log(`Подарочная упаковка и гравировка: ${calcEngraving('Hello World')} Q`);
+console.log(`Подарочная упаковка и гравировка: ${calcEngraving(' Hello   World  ')} Q`);
+console.log(`Подарочная упаковка и гравировка: ${calcEngraving(undefined)} Q`);
 
 // task 3
 
@@ -67,10 +76,12 @@ function calcOrderPrice(productCost, guaranteeTime, engravingText, destination) 
 
   let result = `Общая стоимость заказа: ${productCost + guarantee + engraving + delivery} Q.\n`;
   result += `Из них ${guarantee} Q за гарантийное обслуживание на ${guaranteeTime} год/года.\n`;
-  result += `Гравировка на сумму ${engraving} Q.\n`;
+  result += `Гравировка "${engravingText}" на сумму ${engraving} Q.\n`;
   if (destination) {
     result += `Доставка в область ${destination}: ${delivery} Q.`;
-  } else result += 'Доставка не требуется';
+  } else {
+    result += 'Доставка не требуется';
+  }
   return result;
 }
 
