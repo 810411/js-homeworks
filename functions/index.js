@@ -5,10 +5,10 @@
 function calcGuarantee(yearsQty) {
   if (yearsQty === 0) {
     return 0;
-  } else if (yearsQty % 2 === 0) {
-    return yearsQty * 2300 / 2;
-  } else if (yearsQty % 2 !== 0) {
-    return parseInt(yearsQty / 2) * 2300 + yearsQty % 2 * 1250;
+  } else if (yearsQty === 1) {
+    return 1250;
+  } else if (yearsQty === 2) {
+    return 2300;
   }
   return NaN;
 }
